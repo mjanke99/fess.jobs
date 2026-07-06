@@ -165,7 +165,7 @@ function renderMAView(schichten){
             const n=p.vorname+' '+p.nachname;
             const s=SH_MAP[n]||{};
             const signed=!!s.ma_unterschrift;
-            return \`<tr style="background:${signed?'var(--grb)':'var(--white)'}">
+            return `<tr style="background:${signed?'var(--grb)':'var(--white)'}">
               <td>
                 <div style="font-weight:600;font-size:12px">${n}</div>
                 <div style="font-size:10px;color:var(--mut)">${p.rolle||p.notiz||'–'}</div>
@@ -175,15 +175,15 @@ function renderMAView(schichten){
               <td><input type="time" class="ci" id="bis-${p.id}" value="${s.ende||''}"></td>
               <td><input type="number" class="ci" id="std-${p.id}" value="${s.stunden_gesamt||''}" step="0.5" style="width:60px" placeholder="–"></td>
               <td>
-                ${signed?'<span class="status-tag st-ok">✓</span>':\`
+                ${signed?'<span class="status-tag st-ok">✓</span>':`
                   <div class="sig-box" style="min-width:120px">
                     <canvas id="sig-${p.id}" height="60"></canvas>
                     <div class="sig-hint" id="hint-${p.id}">✍️ Unterschreiben</div>
                   </div>
                   <button class="sig-clear" onclick="clearSig('${p.id}')">↺</button>
-                \`}
+                `}
               </td>
-            </tr>\`;
+            </tr>`;
           }).join('')}
         </tbody>
       </table>
